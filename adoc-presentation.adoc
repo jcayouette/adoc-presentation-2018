@@ -34,7 +34,7 @@ Whom without which would be an impossible task.
 * Enable simple contribution (New format Asciidoc)
 * Write docs as code (write, submit, review, merge)
 * Automation (Merge, build, publish via travisci)
-* Building a community around SUSE Manager
+* Building a community around SUSE Manager and Uyuni
 
 [NOTE.speaker]
 --
