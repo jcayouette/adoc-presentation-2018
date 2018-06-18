@@ -1,0 +1,60 @@
+:customcss: style.css
+:revealjs_theme: suse
+:revealjs_progress: true
+:revealjs_slideNumber: true
+:icons: font
+
+[background-color="white"]
+= Modernizing the SUMA Doc Process
+
+
+
+== Greetings and Introduction
+
+SUSE Manager Doc Process +
+Joseph Cayouette +
+jcayouette@suse.de +
+19.06.2018 +
+
+[NOTE.speaker]
+--
+* Hello, I think most of you already know who I am.
+* However if not, My name is Joseph Cayouette and I represent the primary technical writer for SUSE Manager.
+* I would also like to introduce Karl from SUSE Doc team and our new colleague representing the land down-under Lana Brindley.
+* I can happily say that we can now call ourselves a true pack!
+* I need to give a word of appreciation to Karl for his support on maintaining such a vast body of documentation.
+Whom without which would be an impossible task.
+* Lana I look forward to working with you and am excited to see what kind of constructs we can invent with nothing but duct tape, glue and a few bits-n-bytes.
+--
+
+
+
+== Goals
+
+* Enable simple contribution (New format Asciidoc)
+* Write docs as code (write, submit, review, merge)
+* Automation (Merge, build, publish via travisci)
+* Building a community around SUSE Manager
+
+[NOTE.speaker]
+--
+* I think most of us would agree that XML is machine friendly, and ultimately as a source quite unfriendly for us as humans.
+Asciidoc fulfills the role of a human friendly source while providing outputs to machine friendly XML.
+* Documentation should be written as code along with feature development of a product.
+Docs are doomed to be behind release if they are not written along side the development of new features.
+* Developers should write explanatory documentation as they write code to help prepare a technical writers foundation.
+* Once reviews are performed on pull requests from contributors an automated process via travisci picks up the changes and updates online documentation in near realtime.
+* The simplified workflow gained by migrating to asciidoc, working with docs as code and automation of publishing I hope will aid us in establishing a community around SUSE Manager and uyuni.
+After speaking with Lana, I have great expectations for her experience in helping in establishing an open-source community.
+--
+
+
+
+==
+
+Hello World - Good Bye Cruel World
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
