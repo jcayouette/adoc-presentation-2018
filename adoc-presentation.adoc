@@ -39,7 +39,7 @@ Whom without which would be an impossible task.
 [NOTE.speaker]
 --
 * I think most of us would agree that XML is machine friendly, and ultimately as a source quite unfriendly for us as humans.
-Asciidoc fulfills the role of a human friendly source while providing outputs to machine friendly XML.
+Asciidoc fulfills the role of a human friendly source and provides output to machine friendly XML.
 * Documentation should be written as code along with feature development of a product.
 Docs are doomed to be behind release if they are not written along side the development of new features.
 * Developers should write explanatory documentation as they write code to help prepare a technical writers foundation.
