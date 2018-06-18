@@ -42,7 +42,7 @@ Whom without which would be an impossible task.
 Asciidoc fulfills the role of a human friendly source and provides output to machine friendly XML.
 * Documentation should be written as code along with feature development of a product.
 Docs are doomed to be behind release if they are not written along side the development of new features.
-* Developers should write explanatory documentation as they write code to help prepare a technical writers foundation.
+* Developers should write explanatory documentation as they write code to help prepare a foundation for technical writers.
 * Once reviews are performed on pull requests from contributors an automated process via travisci picks up the changes and updates online documentation in near realtime.
 * The simplified workflow gained by migrating to asciidoc, working with docs as code and automation of publishing I hope will aid us in establishing a community around SUSE Manager and uyuni.
 After speaking with Lana, I have great expectations for her experience in helping in establishing an open-source community.
