@@ -20,11 +20,11 @@ jcayouette@suse.de +
 --
 * Hello, I think most of you already know who I am.
 * However if not, My name is Joseph Cayouette and I represent the primary technical writer for SUSE Manager.
-* I would also like to introduce Karl from SUSE Doc team and our new colleague representing the land down-under Lana Brindley.
-* I can happily say that we can now call ourselves a true pack!
-* I need to give a word of appreciation to Karl for his support on maintaining such a vast body of documentation.
-Whom without which would be an impossible task.
-* Lana I look forward to working with you and am excited to see what kind of constructs we can invent with nothing but duct tape, glue and a few bits-n-bytes.
+* I would also like to introduce Karl from the SUSE Doc team and Lana Brindley our new colleague representing the SUSE Australian branch.
+* I need to give a word of appreciation to you Karl for your support on maintaining such a vast body of documentation.
+Whom without which would be an nay impossible task.
+* A warm welcome to you Lana.
+I look forward to working with you and am excited to see what kind of constructs we can invent with nothing but duct tape, glue and a few bits-n-bytes.
 --
 
 
@@ -38,14 +38,15 @@ Whom without which would be an impossible task.
 
 [NOTE.speaker]
 --
-* I think most of us would agree that XML is machine friendly, and ultimately as a source quite unfriendly for us as humans.
-Asciidoc fulfills the role of a human friendly source and provides output to machine friendly XML.
+* So Ill get right into it. We have a fair amount of content to cover.
+I think most of us would agree that XML is machine friendly, and ultimately as a source quite unfriendly for us as humans.
+Asciidoc fulfills the requirement for a human friendly source and provides output to machine friendly XML.
 * Documentation should be written as code along with feature development of a product.
 Docs are doomed to be behind release if they are not written along side the development of new features.
-* Developers should write explanatory documentation as they write code to help prepare a foundation for technical writers.
-* Once reviews are performed on pull requests from contributors an automated process via travisci picks up the changes and updates online documentation in near realtime.
-* The simplified workflow gained by migrating to asciidoc, working with docs as code and automation of publishing I hope will aid us in establishing a community around SUSE Manager and uyuni.
-After speaking with Lana, I have great expectations for her experience in helping in establishing an open-source community.
+* Developers should write explanatory documentation along side code to help prepare a foundation for technical writers.
+* Once reviews are performed on pull requests from contributors an automated process using travisci picks up the changes and updates online documentation in near realtime.
+* It is my hope that the simplified workflow gained by migrating to asciidoc, working with docs as code and automation of publishing will aid us in establishing a community around SUSE Manager and uyuni.
+I have great expectations for you Lana, especially regarding your experience around establishing an open source community culture.
 --
 
 
