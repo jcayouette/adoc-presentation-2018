@@ -2,18 +2,67 @@
 link.rel = 'stylesheet';
 link.type = 'text/css';
 link.href = window.location.search.match( /print-pdf/gi ) ? "reveal.js/css/print/pdf.css" : "reveal.js/css/print/paper.css";
-document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="reveal.js/lib/js/html5shiv.js"></script><![endif]--><link rel="stylesheet" href="style.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Modernizing the SUMA Doc Process</h1></section><section id="greetings_and_introduction"><h2>Greetings and Introduction</h2><div class="paragraph"><p>SUSE Manager Doc Process<br>
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="reveal.js/lib/js/html5shiv.js"></script><![endif]--><link rel="stylesheet" href="style.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Modernizing the SUMA Doc Process</h1></section><section id="greetings_and_introduction" class="introduction"><h2>Greetings and Introduction</h2><div class="paragraph"><p>SUSE Manager Doc Process<br>
 Joseph Cayouette<br>
 <a href="mailto:jcayouette@suse.de">jcayouette@suse.de</a><br>
 19.06.2018<br></p></div>
-<aside class="notes"><div class="ulist"><ul><li><p>Hello, I think most of you already know who I am.</p></li><li><p>However if not, My name is Joseph Cayouette and I represent the primary technical writer for SUSE Manager.</p></li><li><p>I would also like to introduce Karl from SUSE Doc team and our new colleague representing the land down-under Lana Brindley.</p></li><li><p>I can happily say that we can now call ourselves a true pack!</p></li><li><p>I need to give a word of appreciation to Karl for his support on maintaining such a vast body of documentation.
-Without which would be an impossible task.</p></li><li><p>Lana I look forward to working with you and am excited to see what kind of constructs we can invent with nothing but duct tape, glue and a few bits-n-bytes.</p></li></ul></div></aside></section>
-<section id="goals"><h2>Goals</h2><div class="ulist"><ul><li><p>Make contribution easier (New format Asciidoc)</p></li><li><p>Write docs as code (write, submit, review, merge)</p></li><li><p>Automation (Merge, build, publish via travisci)</p></li></ul></div>
-<aside class="notes"><div class="ulist"><ul><li><p>I think most of us would agree that XML is machine friendly, and ultimately quite unfriendly for us as humans.
-Asciidoc fulfills the role of a human friendly source while providing outputs to machine friendly XML.</p></li><li><p>Documentation should be written as code along with feature development of a product.
-Docs are doomed to be behind release if they are not written along side the development of new features.</p></li><li><p>Developers should write explanatory documentation as they write code to help prepare a technical writers foundation.</p></li><li><p>Once reviews are performed on pull requests from contributors an automated process via travisci picks up the changes and updates online documentation in realtime.</p></li></ul></div></aside></section>
-<section id="slide_two"><h2>Slide Two</h2><div class="paragraph"><p>Hello World - Good Bye Cruel World</p></div>
-<aside class="notes"><div class="paragraph"><p>Actually things aren&#8217;t that bad</p></div></aside></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<aside class="notes"><div class="ulist"><ul><li><p>Hello, I think most of you already know who I am.</p></li><li><p>However if not, My name is Joseph Cayouette and I represent the lead technical writer for SUSE Manager.</p></li><li><p>I would like to thank Karl for his efforts from the SUSE Doc team and give a warm welcome Lana Brindley our new colleague representing the SUSE Australian branch.</p></li></ul></div></aside></section>
+<section id="goals" class="goals"><h2>Goals</h2><div class="ulist"><ul><li><p>Enable simple contribution (New format Asciidoc)</p></li><li><p>Treat AsciiDoc like code
+(branch, fix, pull request, review, merge)</p></li><li><p>Automation (Review, Merge, build, and publish via travisci)</p></li><li><p>Building a community around SUSE Manager and Uyuni</p></li></ul></div>
+<aside class="notes"><div class="ulist"><ul><li><p>So Ill get right into it. We have a fair amount of content to cover.
+I think most of us would agree that XML is machine friendly, and ultimately as a source quite unfriendly for us to digest or work with as humans.
+Asciidoc fulfills the requirement as a human friendly source and provides output to machine friendly XML.</p></li><li><p>It would be useful for documentation to be written as code along with the feature development of a product.
+Docs are doomed to be behind release if they are not written along side the development of new features.</p></li><li><p>Developers should write explanatory documentation at stable intervals while coding to prepare a foundation for technical writers.</p></li><li><p>Once reviews are finished on pull requests from contributors, an automated process using travisci picks up the new repo changes and updates online documentation in near realtime.</p></li><li><p>It is my hope that the simplified workflow gained by migrating to asciidoc, working with docs as code, and automating publishing of documentation will aid us in establishing a community around SUSE Manager and uyuni.
+I have great expectations for Lana, especially regarding her experience around establishing and working with open source community and its culture.</p></li></ul></div></aside></section>
+<section id="xml_vs_asciidoc_part_i" class="vs asciidoc part one"><h2>XML vs. Asciidoc Part I</h2><div class="listingblock"><div class="content"><pre class="highlight"><code>Example: Docbook/XML (fraction)
+&lt;table xml:id="tab.wbem.setting.daemon.1" frame="topbot" rowsep="0"&gt;
+ &lt;title&gt;Commands for Managing sfcbd&lt;/title&gt;
+ &lt;tgroup cols="2"&gt;
+ &lt;colspec colnum="1" colname="1"/&gt;
+ &lt;colspec colnum="2" colname="2"/&gt;
+ &lt;thead&gt;
+ &lt;row rowsep="1"&gt;
+ &lt;entry colname="1"&gt;
+ &lt;para&gt;
+ Task
+ &lt;/para&gt;
+ &lt;/entry&gt;
+ &lt;entry colname="2"&gt;
+ &lt;para&gt;
+ Linux Command
+ &lt;/para&gt;
+ &lt;/entry&gt;
+ &lt;/row&gt;
+ &lt;/thead&gt;
+ ...</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>The following example clearly demonstrates why xml should not be used for contribution.
+The amount of boilerplate is ridiculous for simple contribution and requires complex tooling to be setup before work can even begin.
+For example OxygenXML, vi and emacs all require highly specific configurations via DTDs, and xml catalogs.</p></div></aside></section>
+<section id="xml_vs_asciidoc_part_ii" class="vs asciidoc part two"><h2>XML vs. Asciidoc Part II</h2><div class="paragraph"><p>Example: AsciiDoc (complete)</p></div>
+<div class="listingblock"><div class="content"><pre class="highlight"><code>[cols="1,1", options="header"]
+.Hardware Requirements
+|===
+| Hardware     | Recommended
+| CPU:         | Multi-core 64-bit CPU (x86_64, IBM POWER)
+| RAM:         | Test Server Minimum 4 GB
+|              | Base Installation Minimum 16 GB
+|              | Production Server Minimum 32 GB
+| Disk Space:  | [path]``/`` (root) 24 GB
+|              | [path]``/var/lib/pgsql`` Minimum 50 GB
+|              | [path]``/var/spacewalk`` Minimum 50 GB per SUSE product and 250 GB per Red Hat product
+|===</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>The simplicity of Asciidoc table markup.</p></div></aside></section>
+<section id="xml_vs_asciidoc_part_iii" class="vs asciidoc part three"><h2>XML vs. Asciidoc Part III</h2><div class="imageblock" style=""><img src="adoc-table.png" alt="adoc table"></div>
+<aside class="notes"><div class="paragraph"><p>A rendered Asciidoc table.</p></div></aside></section>
+<section id="build_process_part_i" class="process part one"><h2>Build Process Part I</h2><div class="ulist"><ul><li><p>Docs are written and contributed by community in Asciidoc format</p></li><li><p>The Asciidoctor Ruby gem provides the conversion to Docbook 5 XML</p></li><li><p>The SUSE Docbook Authoring and Publishing Suite(DAPS) enables export of various formats (PDF, EPUB, HTML Single and chunked)</p></li></ul></div></section>
+<section id="build_process_part_ii" class="process part two"><h2>Build Process Part II</h2><div class="ulist"><ul><li><p>We use a Makefile to bind these tools together and produce our output formats</p></li></ul></div>
+<div class="imageblock" style=""><img src="rube-goldberg-machine.jpg" alt="400" width="600"></div></section>
+<section id="documentation_resources" class="repo links"><h2>Documentation Resources</h2><div class="ulist"><ul><li><p><a href="https://github.com/SUSE/doc-susemanager">github.com/SUSE/doc-susemanager</a></p></li><li><p><a href="https://github.com/SUSE/doc-susemanager/blob/develop/adoc/MAIN-manager.adoc">doc-susemanager/MAIN-manager.adoc</a></p></li><li><p><a href="https://github.com/SUSE/doc-susemanager/wiki" class="bare">https://github.com/SUSE/doc-susemanager/wiki</a></p></li><li><p><a href="https://github.com/SUSE/doc-susemanager/wiki/Asciidoc-getting-started">Getting Started with Asciidoc</a></p></li></ul></div>
+<aside class="notes"><div class="paragraph"><p>The current location of our SUSE Manager documentation repository is on github under the SUSE organization.
+As you can see github can render adoc sources for viewing.
+We also have created a wiki for documention.
+The goal of this wiki is to provide guides for working with asciidoc, contributing and styling rules</p></div></aside></section>
+<section id="the_asciidoc_browser_plugin"><h2>The Asciidoc Browser Plugin</h2><div class="ulist"><ul><li><p><a href="https://github.com/SUSE/doc-susemanager/wiki/Asciidoc-getting-started#asciidoctorjs-browser-extension">Asciidoctorjs Browser Extension (Chrome, Firefox, Opera)</a></p></li></ul></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,

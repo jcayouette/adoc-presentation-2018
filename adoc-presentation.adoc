@@ -3,12 +3,14 @@
 :revealjs_progress: true
 :revealjs_slideNumber: true
 :icons: font
+:ppc: POWER
 
 [background-color="white"]
 = Modernizing the SUMA Doc Process
 
 
 
+[greetings.introduction]
 == Greetings and Introduction
 
 SUSE Manager Doc Process +
@@ -19,43 +21,152 @@ jcayouette@suse.de +
 [NOTE.speaker]
 --
 * Hello, I think most of you already know who I am.
-* However if not, My name is Joseph Cayouette and I represent the primary technical writer for SUSE Manager.
-* I would also like to introduce Karl from the SUSE Doc team and Lana Brindley our new colleague representing the SUSE Australian branch.
-* I need to give a word of appreciation to you Karl for your support on maintaining such a vast body of documentation.
-Whom without which would be an nay impossible task.
-* A warm welcome to you Lana.
-I look forward to working with you and am excited to see what kind of constructs we can invent with nothing but duct tape, glue and a few bits-n-bytes.
+* However if not, My name is Joseph Cayouette and I represent the lead technical writer for SUSE Manager.
+* I would like to thank Karl for his efforts from the SUSE Doc team and give a warm welcome Lana Brindley our new colleague representing the SUSE Australian branch.
 --
 
 
 
+[modernization.goals]
 == Goals
 
 * Enable simple contribution (New format Asciidoc)
-* Write docs as code (write, submit, review, merge)
-* Automation (Merge, build, publish via travisci)
+* Treat AsciiDoc like code
+ (branch, fix, pull request, review, merge)
+* Automation (Review, Merge, build, and publish via travisci)
 * Building a community around SUSE Manager and Uyuni
 
 [NOTE.speaker]
 --
 * So Ill get right into it. We have a fair amount of content to cover.
-I think most of us would agree that XML is machine friendly, and ultimately as a source quite unfriendly for us as humans.
-Asciidoc fulfills the requirement for a human friendly source and provides output to machine friendly XML.
-* Documentation should be written as code along with feature development of a product.
+I think most of us would agree that XML is machine friendly, and ultimately as a source quite unfriendly for us to digest or work with as humans.
+Asciidoc fulfills the requirement as a human friendly source and provides output to machine friendly XML.
+* It would be useful for documentation to be written as code along with the feature development of a product.
 Docs are doomed to be behind release if they are not written along side the development of new features.
-* Developers should write explanatory documentation along side code to help prepare a foundation for technical writers.
-* Once reviews are performed on pull requests from contributors an automated process using travisci picks up the changes and updates online documentation in near realtime.
-* It is my hope that the simplified workflow gained by migrating to asciidoc, working with docs as code and automation of publishing will aid us in establishing a community around SUSE Manager and uyuni.
-I have great expectations for you Lana, especially regarding your experience around establishing an open source community culture.
+* Developers should write explanatory documentation at stable intervals while coding to prepare a foundation for technical writers.
+* Once reviews are finished on pull requests from contributors, an automated process using travisci picks up the new repo changes and updates online documentation in near realtime.
+* It is my hope that the simplified workflow gained by migrating to asciidoc, working with docs as code, and automating publishing of documentation will aid us in establishing a community around SUSE Manager and uyuni.
+I have great expectations for Lana, especially regarding her experience around establishing and working with open source community and its culture.
 --
 
 
 
-==
+[xml.vs.asciidoc.part.one]
+== XML vs. Asciidoc Part I
 
-Hello World - Good Bye Cruel World
+----
+Example: Docbook/XML (fraction)
+<table xml:id="tab.wbem.setting.daemon.1" frame="topbot" rowsep="0">
+ <title>Commands for Managing sfcbd</title>
+ <tgroup cols="2">
+ <colspec colnum="1" colname="1"/>
+ <colspec colnum="2" colname="2"/>
+ <thead>
+ <row rowsep="1">
+ <entry colname="1">
+ <para>
+ Task
+ </para>
+ </entry>
+ <entry colname="2">
+ <para>
+ Linux Command
+ </para>
+ </entry>
+ </row>
+ </thead>
+ ...
+----
 
 [NOTE.speaker]
 --
-Actually things aren't that bad
+The following example clearly demonstrates why xml should not be used for contribution.
+The amount of boilerplate is ridiculous for simple contribution and requires complex tooling to be setup before work can even begin.
+For example OxygenXML, vi and emacs all require highly specific configurations via DTDs, and xml catalogs.
+--
+
+
+
+[xml.vs.asciidoc.part.two]
+== XML vs. Asciidoc Part II
+
+Example: AsciiDoc (complete)
+----
+[cols="1,1", options="header"]
+.Hardware Requirements
+|===
+| Hardware     | Recommended
+| CPU:         | Multi-core 64-bit CPU (x86_64, IBM POWER)
+| RAM:         | Test Server Minimum 4 GB
+|              | Base Installation Minimum 16 GB
+|              | Production Server Minimum 32 GB
+| Disk Space:  | [path]``/`` (root) 24 GB
+|              | [path]``/var/lib/pgsql`` Minimum 50 GB
+|              | [path]``/var/spacewalk`` Minimum 50 GB per SUSE product and 250 GB per Red Hat product
+|===
+----
+
+[NOTE.speaker]
+--
+The simplicity of Asciidoc table markup.
+--
+
+
+
+[xml.vs.asciidoc.part.three]
+== XML vs. Asciidoc Part III
+
+image::adoc-table.png[]
+
+[NOTE.speaker]
+--
+A rendered Asciidoc table.
+--
+
+[build.process.part.one]
+== Build Process Part I
+
+* Docs are written and contributed by community in Asciidoc format
+* The Asciidoctor Ruby gem provides the conversion to Docbook 5 XML
+* The SUSE Docbook Authoring and Publishing Suite(DAPS) enables export of various formats (PDF, EPUB, HTML Single and chunked)
+
+
+
+[build.process.part.two]
+== Build Process Part II
+
+* We use a Makefile to bind these tools together and produce our output formats
+
+image::rube-goldberg-machine.jpg[400, 600]
+
+
+
+[documentation.repo.links]
+== Documentation Resources
+
+* https://github.com/SUSE/doc-susemanager[github.com/SUSE/doc-susemanager]
+* https://github.com/SUSE/doc-susemanager/blob/develop/adoc/MAIN-manager.adoc[doc-susemanager/MAIN-manager.adoc]
+* https://github.com/SUSE/doc-susemanager/wiki
+* https://github.com/SUSE/doc-susemanager/wiki/Asciidoc-getting-started[Getting Started with Asciidoc]
+
+[NOTE.speaker]
+--
+The current location of our SUSE Manager documentation repository is on github under the SUSE organization.
+As you can see github can render adoc sources for viewing.
+We also have created a wiki for documention.
+The goal of this wiki is to provide guides for working with asciidoc, contributing and styling rules
+--
+
+
+
+[asciidoctor.browser.plugin]
+== The Asciidoc Browser Plugin
+
+* https://github.com/SUSE/doc-susemanager/wiki/Asciidoc-getting-started#asciidoctorjs-browser-extension[Asciidoctorjs Browser Extension (Chrome, Firefox, Opera)]
+
+[NOTE.speaker]
+--
+There is an excellent browser extension that the team behind asciidoctor created for rendering and updating your writing in realtime within the browser.
+To use the plugin and see rendered html, open any adoc file you are editing in the browser.
+Anytime you save your file, the plugin will pick up the changes on the local file system and update.
 --
